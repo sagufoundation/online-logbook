@@ -98,7 +98,7 @@
         <p>Copyright &copy; 2023, SAGU Foundation.</p>
     </div>
     <!-- Footer End -->
-
+tes
     <script src="./project.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.4/flowbite.min.js"></script>
@@ -109,6 +109,44 @@
   crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <script>
+        
+                 function sukses() {
+                    let name = $("#name").val();
+                    let notes = $("#notes").val();
+                    
+
+                if (name && notes) {
+                var script_url = "https://script.google.com/macros/s/AKfycbwVL8aUF_P9MCi5uvw2l-Yq8k4jN27qLL4cAatLL0oxSRQFKOjBZUvbQW_3Upk0eOHV/exec";
+                let url = script_url + "?callback=ctrlq&name=" + name + "&notes=" + notes + "&action=insert";
+                    $("input[type='text']").val("");
+                    $("textarea").val("");
+                    var request = jQuery.ajax({
+                        crossDomain: true,
+                        url: url,
+                        method: "GET",
+                        dataType: "jsonp"
+                    });
+                    Swal.fire({         //displays a pop up with sweetalert
+                    icon: 'success',
+                    text: 'Thank You',
+                    showConfirmButton: true,
+                    timer: 3000
+                });
+
+               
+                }else{
+                   Swal.fire({         //displays a pop up with sweetalert
+                    icon: 'error',
+                    text: 'Fill in the data correctly !!',
+                    showConfirmButton: true,
+                    timer: 3000
+                });
+                } 
+            }
+        
+        
+        
+        
         var themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
         var themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
 
@@ -150,39 +188,7 @@
 
         });
         
-         function sukses() {
-                    let name = $("#name").val();
-                    let notes = $("#notes").val();
-                    
 
-                if (name && notes) {
-                var script_url = "https://script.google.com/macros/s/AKfycbwVL8aUF_P9MCi5uvw2l-Yq8k4jN27qLL4cAatLL0oxSRQFKOjBZUvbQW_3Upk0eOHV/exec";
-                let url = script_url + "?callback=ctrlq&name=" + name + "&notes=" + notes + "&action=insert";
-                    $("input[type='text']").val("");
-                    $("textarea").val("");
-                    var request = jQuery.ajax({
-                        crossDomain: true,
-                        url: url,
-                        method: "GET",
-                        dataType: "jsonp"
-                    });
-                    Swal.fire({         //displays a pop up with sweetalert
-                    icon: 'success',
-                    text: 'Thank You',
-                    showConfirmButton: true,
-                    timer: 3000
-                });
-
-               
-                }else{
-                   Swal.fire({         //displays a pop up with sweetalert
-                    icon: 'error',
-                    text: 'Fill in the data correctly !!',
-                    showConfirmButton: true,
-                    timer: 3000
-                });
-                } 
-            }
     </script>
 
 </body>
