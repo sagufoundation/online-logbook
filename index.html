@@ -24,7 +24,10 @@
             document.documentElement.classList.remove('dark')
         }
     </script>
-
+    
+     <!-- SWEETALERT -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    
 </head>
 
 <body class="dark:bg-gray-900">
@@ -80,7 +83,7 @@
                 <form action="confirmation.html" class="">
                     <div class="mb-6">
                         <label for="" class="block text-xl mb-2 font-bold text-gray-600 dark:text-gray-200">Full Name</label>
-                        <input type="text" placeholder="your full name" class="rounded-lg py-4 px-6 w-full text-2xl shadow-lg">
+                        <input type="text" placeholder="your full name" id="name" class="rounded-lg py-4 px-6 w-full text-2xl shadow-lg">
                     </div>
                     <!-- item end -->
 
@@ -157,6 +160,39 @@
             }
 
         });
+        
+         function sukses() {
+                    let name = $("#name").val();
+                    let notes = $("#notes").val();
+                    
+
+                if (name && notes) {
+                var script_url = "https://script.google.com/macros/s/AKfycbyzxlYCyQvyJkcC1Dp8PqGk1K-uaPY1swqD9H7OF4Pg2VbdmfKB4hiSukQTKNrlZFcN/exec";
+                let url = script_url + "?callback=ctrlq&name=" + name + "&notes=" + "&notes=" + notes + "&action=insert";
+                    $("input[type='text']").val("");
+                    var request = jQuery.ajax({
+                        crossDomain: true,
+                        url: url,
+                        method: "GET",
+                        dataType: "jsonp"
+                    });
+                    Swal.fire({         //displays a pop up with sweetalert
+                    icon: 'success',
+                    text: 'Thank You',
+                    showConfirmButton: true,
+                    timer: 3000
+                });
+
+               
+                }else{
+                   Swal.fire({         //displays a pop up with sweetalert
+                    icon: 'error',
+                    text: 'Fill in the data correctly !!',
+                    showConfirmButton: true,
+                    timer: 3000
+                });
+                } 
+            }
     </script>
 
 </body>
