@@ -48,7 +48,7 @@
     </div>
     <!-- End Hero -->
     <!-- Card Section -->
-    <div class="max-w-[50rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+    <div class="max-w-[50rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto" id="registration" >
 
 
         <div class="mb-9">
@@ -82,7 +82,7 @@
                     <!-- item end -->
 
                     <div class="mt-9">
-                        <button onclick="sukses()" class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 w-full rounded-lg shadow hover:shadow-lg py-5 transition border border-gray-600 text-white text-xl font-bold">
+                        <button onclick="konfirmasi()" class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 w-full rounded-lg shadow hover:shadow-lg py-5 transition border border-gray-600 text-white text-xl font-bold">
                             <i class="fa-solid fa-paper-plane"></i> Save
                         </button>
                     </div>
@@ -92,13 +92,43 @@
     </div>
     <!-- End Card Section -->
 
+       <!-- Card confirmation -->
+   <div id="confirmation" class="max-w-[50rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto hidden">
+
+
+        <div class="mb-9">
+        
+            <h1 class="mb-4 text-center text-6xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white mb-6">
+                <span class="bg-clip-text bg-gradient-to-tl from-indigo-500 via-purple-500 to-pink-500 text-transparent">Daily Logbook</span>
+            </h1>
+
+            <div class="" id="pendaftar">
+               
+            </div>
+
+        </div>
+    </div>
+    <!-- End Card confirmation -->
+
+
+    
+        <!-- Card Section Success -->
+        <div id="success" class="max-w-[50rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto hidden">
+            <div class="mb-9 text-center">
+                <h1 class="mb-4 text-6xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white mb-6">
+                    <span class="bg-clip-text bg-gradient-to-tl from-blue-600 to-violet-600 text-transparent">Success!</span></h1>
+                <div class="">
+                    <!-- <p class="mb-6 text-xl text-gray-600 dark:text-gray-200">Welcome to Education Expo by SAGU Foundation</p> -->
+                </div>
+            </div>
+        </div>
+        <!-- End Card Section Success -->
+
     <!-- Footer Start tes -->
     <div class="text-center py-9 text-gray-600 dark:text-gray-200">
         <p>Copyright &copy; 2023, SAGU Foundation.</p>
     </div>
     <!-- Footer End -->
-tes
-    <script src="./project.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.4/flowbite.min.js"></script>
     
@@ -107,16 +137,71 @@ tes
   integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ=="
   crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
+
+
+    <script>
+          let registration = document.getElementById("registration");
+            let confirmation = document.getElementById("confirmation");
+            let berhasil = document.getElementById("success");
+      
+
+        function konfirmasi() {
+            let name = $("#name").val();
+            let notes = $("#notes").val();
+            let status = $("#status").val();
+            if(name && notes && status)
+            {
+                registration.classList.add("hidden");
+                confirmation.classList.remove("hidden");
+                document.getElementById("pendaftar").innerHTML = `
+                <p class="hidden mb-6 text-xl text-gray-600 dark:text-gray-200">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quasi, doloribus?</p>
+                    <div class="mb-6">
+                        <label for="" class="block text-xl mb-2 font-bold text-gray-600 dark:text-gray-200">Full Name</label>
+                        <input type="text" placeholder="your full name" class="rounded-lg pb-4 w-full text-2xl border-none p-0 bg-transparent dark:text-gray-200" id="fullName" value="${name}">
+                    </div>
+                    <!-- item end -->
+                    
+                    <div class="mb-6">
+                        <label for="" class="block text-xl mb-2 font-bold text-gray-600 dark:text-gray-200">Activity</label>
+                        <input type="text" placeholder="your full name" class="rounded-lg pb-4 w-full text-2xl border-none p-0 bg-transparent dark:text-gray-200" id="email_address" value="${notes}">
+                    </div>
+                    <!-- item end -->
+
+                    <div class="mb-6">
+                        <label for="" class="block text-xl mb-2 font-bold text-gray-600 dark:text-gray-200">Choose</label>
+                        <input type="text" placeholder="your full name" class="rounded-lg pb-4 w-full text-2xl border-none p-0 bg-transparent dark:text-gray-200" id="" value="${status}">
+                    </div>
+                    <!-- item end -->
+
+                    <div class="mt-9">
+                        <button class="inline-flex justify-center items-center gap-x-3 text-center bg-gradient-to-tl from-blue-600 to-violet-600 hover:from-violet-600 hover:to-blue-600 border border-transparent text-white text-2xl font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 focus:ring-offset-white py-3 px-4 dark:focus:ring-offset-gray-800 w-full py-4 px-6" onclick="sukses()">
+                            <i class="fa-solid fa-paper-plane"></i> Send
+                        </button>
+                    </div>
+                
+                `;
+               
+            }else{
+                Swal.fire({         //displays a pop up with sweetalert
+                    icon: 'error',
+                    text: 'Fill in the data correctly !!',
+                    showConfirmButton: true,
+                    timer: 3000
+                });
+            }
+        }
+    </script>
+
+
+
+
     <script>
         
                  function sukses() {
                     let name = $("#name").val();
                     let notes = $("#notes").val();
                     let status = $("#status").val();
-                    
-                    console.log(status);
-                    console.log(name);
-                    console.log(notes);
+                   
                 if (name && notes && status) {
                 var script_url = "https://script.google.com/macros/s/AKfycbxGsXau3-J3we9zWZ52jk3D-ZQT50CQ0KvZWhgOFOEUf1d9sFkxg667YujSJhkHXYm8/exec";
                 let url = script_url + "?callback=ctrlq&name=" + name + "&notes=" + notes + "&status="+status+"&action=insert";
@@ -128,22 +213,10 @@ tes
                         method: "GET",
                         dataType: "jsonp"
                     });
-                    Swal.fire({         //displays a pop up with sweetalert
-                    icon: 'success',
-                    text: 'Thank You',
-                    showConfirmButton: true,
-                    timer: 3000
-                });
-
-               
-                }else{
-                   Swal.fire({         //displays a pop up with sweetalert
-                    icon: 'error',
-                    text: 'Fill in the data correctly !!',
-                    showConfirmButton: true,
-                    timer: 3000
-                });
-                } 
+                    registration.classList.add("hidden");
+                    confirmation.classList.add("hidden");
+                    berhasil.classList.remove("hidden");
+                }
             }
         
         
