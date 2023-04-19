@@ -112,11 +112,12 @@ tes
                  function sukses() {
                     let name = $("#name").val();
                     let notes = $("#notes").val();
+                    let status = $("#status").val();
                     
 
                 if (name && notes) {
-                var script_url = "https://script.google.com/macros/s/AKfycbzal3YQPMQFIq4Ar7KD_7BVtAieaaCc5gDgWlpiRm-7UWcw0vas4N2wXftNjoUvJ0f0/exec";
-                let url = script_url + "?callback=ctrlq&name=" + name + "&notes=" + notes + "&action=insert";
+                var script_url = "https://script.google.com/macros/s/AKfycbyJUXuvmdOzfpnmI5cJ0bJnlCWlMt1vdWHDki0Kv7BxfT5OeGTNoamw7KtJ4cYOwmYp/exec";
+                let url = script_url + "?callback=ctrlq&name=" + name + "&notes=" + notes + "&status"+status+"&action=insert";
                     $("input[type='text']").val("");
                     $("textarea").val("");
                     var request = jQuery.ajax({
