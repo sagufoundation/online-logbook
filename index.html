@@ -25,19 +25,7 @@
  </head>
 
 <body class="dark:bg-gray-900">
-    <button id="theme-toggle" type="button"
-        class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5">
-        <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
-            xmlns="http://www.w3.org/2000/svg">
-            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
-        </svg>
-        <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
-            xmlns="http://www.w3.org/2000/svg">
-            <path
-                d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
-                fill-rule="evenodd" clip-rule="evenodd"></path>
-        </svg>
-    </button>    
+
     <!-- Hero -->
     <div class="relative overflow-hidden before:absolute before:top-0 before:left-1/2 before:bg-[url('../svg/component/polygon.svg')] before:bg-no-repeat before:bg-top before:bg-cover before:w-full before:h-full before:-z-[1] before:transform before:-translate-x-1/2 dark:before:bg-[url('../svg/component/polygon-dark.svg')]">
         <div class="max-w-[50rem] mx-auto px-4 sm:px-6 lg:px-8 pb-10">
@@ -77,13 +65,24 @@
                     <!-- item end -->
 
                     <div class="mb-6">
-                        <label for="notes" class="block text-xl mb-2 font-bold text-gray-600 dark:text-gray-200">Notes</label>
-                        <textarea name="notes" id="notes" rows="5" class="rounded-lg py-4 px-6 w-full text-2xl shadow-lg" placeholder="what you want to do?"></textarea>
+                        <label for="activity" class="block text-xl mb-2 font-bold text-gray-600 dark:text-gray-200">Activity</label>
+                        <textarea name="activity" id="activity" rows="5" class="rounded-lg py-4 px-6 w-full text-2xl shadow-lg" placeholder="Please describe your activity"></textarea>
+                    </div>
+                    <!-- item end -->
+
+                    
+                    <div class="mb-6">
+                        <label for="status" class="block text-xl mb-2 font-bold text-gray-600 dark:text-gray-200">Choose</label>
+                        <select id="status" name="status" class="rounded-lg py-4 px-6 w-full text-2xl shadow-lg">
+                            <option selected hidden>In or Out</option>
+                            <option value="in">Check in</option>
+                            <option value="out">Check out</option>
+                        </select>
                     </div>
                     <!-- item end -->
 
                     <div class="mt-9">
-                        <button onclick="sukses()" class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 w-full rounded-lg shadow hover:shadow-lg py-5 transition border border-gray-600 text-white text-xl">
+                        <button onclick="sukses()" class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 w-full rounded-lg shadow hover:shadow-lg py-5 transition border border-gray-600 text-white text-xl font-bold">
                             <i class="fa-solid fa-paper-plane"></i> Save
                         </button>
                     </div>
